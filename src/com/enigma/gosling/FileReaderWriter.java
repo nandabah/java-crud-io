@@ -9,6 +9,12 @@ public class FileReaderWriter {
     private static File file = new File("Example.txt");
 
     public static void main(String[] args) {
+
+        try( BufferedReader reader = new BufferedReader(new FileReader(file)) ){
+            
+        }catch (IOException e){
+
+        }
         /*try {
             // char stream
             FileInputStream byteFile = new FileInputStream(fileInput);

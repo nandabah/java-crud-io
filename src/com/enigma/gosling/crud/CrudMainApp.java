@@ -10,6 +10,8 @@ public class CrudMainApp {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        caseInput();
         // Case 1:
         //create();
         // Case 2:
@@ -17,13 +19,47 @@ public class CrudMainApp {
         // Case 3:
         // update();
         // Case 4:
-        delete();
-        read();
+//        delete();
+//        read();
+    }
+
+    private static void caseInput() {
+        while (true) {
+            cli();
+            System.out.print("Enter Number: ");
+            switch (scanner.nextLine()) {
+                case "1":
+                    create();
+                    break;
+                case "2":
+                    read();
+                    break;
+                case "3":
+                    update();
+                    break;
+                case "4":
+                    delete();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    public static void cli(){
+        System.out.println("=".repeat(15));
+        System.out.println("=   1,Create  =");
+        System.out.println("=   2,Read    =");
+        System.out.println("=   3,Upadte  =");
+        System.out.println("=   4,Delete  =");
+        System.out.println("=".repeat(15));
     }
 
     public static void create() {
+        System.out.print("Enter Id: ");
         Integer id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter Name: ");
         String name = scanner.nextLine();
+        System.out.print("Enter Age: ");
         Integer age = Integer.parseInt(scanner.nextLine());
 
         Person newPerson = new Person(id, name, age);
@@ -51,7 +87,7 @@ public class CrudMainApp {
         personService.updateById(id, name, age);
     }
 
-    public static void delete(){
+    public static void delete() {
         System.out.print("Enter ID: ");
         int id = Integer.parseInt(scanner.nextLine());
 
